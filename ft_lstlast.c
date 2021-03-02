@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmarti <julmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 17:12:24 by julmarti          #+#    #+#             */
-/*   Updated: 2021/03/02 12:34:16 by julmarti         ###   ########.fr       */
+/*   Created: 2021/02/03 20:02:11 by julmarti          #+#    #+#             */
+/*   Updated: 2021/03/02 12:33:01 by julmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+t_list		*ft_lstlast(t_list *lst)
 {
-	int		i;
-	char	*s2;
+	t_list *tmp;
 
-	i = 0;
-	s2 = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (s2 == NULL)
+	tmp = lst;
+	if (lst == NULL)
 		return (NULL);
-	while (s[i])
+	else
 	{
-		s2[i] = s[i];
-		i++;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		return (tmp);
 	}
-	s2[i] = '\0';
-	return (s2);
 }

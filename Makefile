@@ -6,21 +6,21 @@
 #    By: julmarti <julmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/09 20:36:05 by julmarti          #+#    #+#              #
-#    Updated: 2021/02/25 17:16:45 by julmarti         ###   ########.fr        #
+#    Updated: 2021/03/02 12:37:05 by julmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libft.a
 
-SRCSB = ft_lstnew_bonus.c			\
-		ft_lstadd_front_bonus.c		\
-		ft_lstsize_bonus.c			\
-		ft_lstlast_bonus.c			\
-		ft_lstadd_back_bonus.c		\
-		ft_lstdelone_bonus.c		\
-		ft_lstclear_bonus.c			\
-		ft_lstiter_bonus.c			
+SRCSB = ft_lstnew.c				\
+		ft_lstadd_front.c		\
+		ft_lstsize.c			\
+		ft_lstlast.c			\
+		ft_lstadd_back.c		\
+		ft_lstdelone.c			\
+		ft_lstclear.c			\
+		ft_lstiter.c			
 
 SRCS =	ft_atoi.c 					\
 		ft_bzero.c 					\

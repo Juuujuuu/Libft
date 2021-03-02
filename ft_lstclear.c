@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julmarti <julmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 17:12:24 by julmarti          #+#    #+#             */
-/*   Updated: 2021/03/02 12:34:16 by julmarti         ###   ########.fr       */
+/*   Created: 2021/02/05 14:00:59 by julmarti          #+#    #+#             */
+/*   Updated: 2021/03/02 12:32:25 by julmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s)
+void	ft_lstclear(t_list **lst, void (*del) (void *))
 {
-	int		i;
-	char	*s2;
+	t_list *tmp;
+	t_list *suiv;
 
-	i = 0;
-	s2 = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (s2 == NULL)
-		return (NULL);
-	while (s[i])
+	tmp = *lst;
+	suiv = (*lst)->next;
+	if (!del || !lst || !tmp || !suiv)
+		return ;
+	if ((*lst) != NULL)
 	{
-		s2[i] = s[i];
-		i++;
+		while (tmp)
+		{
+			suiv = tmp->next;
+			del(tmp->content);
+			free(tmp);
+			tmp = suiv;
+		}
+		tmp = NULL;
 	}
-	s2[i] = '\0';
-	return (s2);
+	*lst = NULL;
 }
